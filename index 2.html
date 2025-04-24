@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPU Scheduling Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CPU Scheduling Simulator</h1>
+
+  <div class="section">
+    <label for="processCount">Enter number of processes:</label>
+    <input type="number" id="processCount" min="1">
+    <button onclick="generateInputs()">Generate Inputs</button>
+  </div>
+
+  <form id="multiProcessForm" class="hidden"></form>
+  <button id="submitProcesses" class="hidden" onclick="submitProcesses()">Submit All Processes</button>
+
+  <div class="section">
+    <label for="algorithm">Choose Algorithm:</label>
+    <select id="algorithm">
+      <option value="fcfs">FCFS</option>
+      <option value="sjf">SJF</option>
+      <option value="priority">Priority</option>
+      <option value="rr">Round Robin</option>
+      <option value="srtf">SRTF</option>
+    </select>
+    <div id="quantumField" style="display:none;">
+      <label for="quantum">Time Quantum:</label>
+      <input type="number" id="quantum" placeholder="Time Quantum">
+    </div>
+  </div>
+
+  <button onclick="runScheduler()">Run Scheduler</button>
+
+  <div id="ganttChart" class="gantt-container"></div>
+  <div id="results"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
